@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="User" extends="struts-default" namespace="/">
+
+        <!--定义拦截器-->
+        <!--<interceptors>
+            <interceptor name="loginintercept" class="cn.chan.interceptor.LoginInterceptor"></interceptor>
+        </interceptors>-->
+
+
+        <!--用户-->
+        <action name="user*" class="cn.chan.action.UserAction" method="{1}">
+
+            <!--使用定义拦截器-->
+           <!-- <interceptor-ref name="loginintercept">
+
+                &lt;!&ndash;忽略拦截的方法&ndash;&gt;
+                <param name="excludeMethods">doLogin</param>
+            </interceptor-ref>
+
+            &lt;!&ndash; 3 把默认拦截器手动使用一次 &ndash;&gt;
+            <interceptor-ref name="defaultStack"></interceptor-ref>-->
+
+
+            <result name="toregist" type="redirect">/music/regist.jsp</result>
+            <result name="doRegist">/music/regist.jsp</result>
+
+            <!--登录失败跳转到登录页面-->
+            <result name="toLogin">/music/login.jsp</result>
+
+            <!--登陆成功跳转到主页-->
+            <result name="doLogin" type="redirect">/music/index.jsp</result>
+
+            <result name="allUser">/music/manager/index.jsp</result>
+
+            <!--用户激活-->
+            <result name="activation">/music/message.jsp</result>
+
+            <!--删除用户-->
+            <result name="deleteUser" type="redirectAction">userfindAll.action</result>
+
+
+        </action>
+
+        <!--验证码-->
+        <action name="verifyCode" class="cn.chan.action.VerifyCodeAction"></action>
+
+
+        <!--歌曲模块-->
+        <action name="song*" class="cn.chan.action.SongAction" method="{1}">
+
+            <result name="addSong">/music/manager/index.jsp</result>
+
+            <result name="allSong">/music/manager/index.jsp</result>
+
+            <result name="findSong">/music/songlist.jsp</result>
+
+
+            <result name="delete" type="redirectAction">songallSong.action</result>
+
+        </action>
+
+
+
+        <!--歌手模块-->
+        <action name="singer*" class="cn.chan.action.SingerAction" method="{1}">
+            <result name="addSinger">/music/manager/index.jsp</result>
+
+            <!--遍历所有歌手-->
+            <result name="beforeAllSinger">/music/singerlist.jsp</result>
+            <result name="afterAllSinger">/music/manager/index.jsp</result>
+
+
+            <result name="allSingerName">/music/manager/addsong.jsp</result>
+
+
+            <result name="delSinger" type="redirectAction">singerallSinger.action?result=after</result>
+
+
+            <result name="findById">/music/manager/modify_singer.jsp</result>
+
+            <result name="update" type="redirectAction">singerallSinger.action?result=after</result>
+        </action>
+
+
+    </package>
+
+    
+</struts>
