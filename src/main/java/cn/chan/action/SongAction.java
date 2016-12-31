@@ -4,6 +4,7 @@ import cn.chan.entity.Song;
 import cn.chan.service.SongService;
 import com.opensymphony.xwork2.ActionSupport;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 
@@ -57,8 +58,6 @@ public class SongAction extends ActionSupport {
     public String add()
     {
 
-
-
         song.setSingerid(sid);
 
         songService.addSong(song);
@@ -66,6 +65,7 @@ public class SongAction extends ActionSupport {
 
         return "addSong";
     }
+
 
 
     /**
@@ -83,6 +83,8 @@ public class SongAction extends ActionSupport {
     }
 
 
+
+
     /**
      * 查找
      * @return
@@ -90,7 +92,13 @@ public class SongAction extends ActionSupport {
     public String findSong()
     {
 
-        songList = songService.fuzzyQuery(sname);
+        try {
+            String n = new String(sname.getBytes("ISO-8859-1"),"utf-8");
+            songList = songService.fuzzyQuery(n);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
         return "findSong";
 
     }
@@ -103,8 +111,6 @@ public class SongAction extends ActionSupport {
         songService.delete(sid);
         return "delete";
     }
-
-
 
 
 }
