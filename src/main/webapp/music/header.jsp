@@ -64,13 +64,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div class="login">
 		<ul>
-			<s:if test="#session.username==null">
+			<s:if test="#session.user==null">
 				<li><a href="music/regist.jsp" class="header_a2">注册</a></li>
 				<li><a href="music/login.jsp" class="header_a">登录</a></li>
 			</s:if>
 			<s:else>
-				<li><h3>欢迎用户：<s:property value="#session.username"/> </h3></li>
-				<li><a href="" id="out" class="header_a">退出</a></li>
+				<li><h3>欢迎用户：<s:property value="#session.user.username"/> </h3></li>
+				<li><a href="/userexitLogin.action" id="out" class="header_a">退出</a></li>
 
 			</s:else>
 
