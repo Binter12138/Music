@@ -176,8 +176,9 @@ public class UserAction extends ActionSupport{
             return "toLogin";
 
         } else {
+            user = userService.checkUsername(username);
 
-            request.getSession().setAttribute("username",username);
+            request.getSession().setAttribute("user",user);
             return "doLogin";
         }
 
@@ -266,6 +267,13 @@ public class UserAction extends ActionSupport{
         userService.delUser(uid);
         return "deleteUser";
 
+    }
+
+    public String exitLogin()
+    {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        request.getSession().invalidate();
+        return "doLogin";
     }
 
 
