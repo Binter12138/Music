@@ -95,10 +95,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<%--<td><input type="text" id="textid" name="song.singername"></td>--%>
 
 				<td>
-					<s:select list="#request.singerList" listKey="singerid" listValue="singername" value="singerid" name="sid"/>
+					<s:select list="#request.singerList" listKey="singerid" listValue="singername" value="singerid" name="sid" id="sename" onchange="changeName(this)"/>
 
 
-
+                    <input type="hidden" id="hiddenname" name="song.singername" value="">
+					<%--<s:hidden value="" name="song.singername" id="hidden"></s:hidden>--%>
 				<%--<select name="song.singername">
 					<s:iterator value="singerList" var="singer">
 					<option id="textid" name="singerid" value="%{#singer.singername}"><s:property value="#singer.singername"/></option>
@@ -144,6 +145,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <script type="text/javascript" src="music/js/jquery.min.js"></script>
 <script type="text/javascript" src="music/js/header.js"></script>
+  <script type="text/javascript">
+	  function changeName(elem) {
+//	  	alert($(".sename").);
+//          var a = document.getElementById("sename").value;
+//          alert(a);
+          var a = $(elem).find("option:selected").text();
+//          alert(a);
+          $("#hiddenname").val(a);
+
+
+	  }
+
+  </script>
   	
   </body>
 </html>

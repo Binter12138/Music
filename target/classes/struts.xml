@@ -5,6 +5,7 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+    <constant name="struts.ui.theme" value="simple"></constant>
     <package name="User" extends="struts-default" namespace="/">
 
         <!--定义拦截器-->
@@ -85,6 +86,13 @@
             <result name="findById">/music/manager/modify_singer.jsp</result>
 
             <result name="update" type="redirectAction">singerallSinger.action?result=after</result>
+        </action>
+
+
+        <action name="UserCollection*" class="cn.chan.action.UserCollectionAction" method="{1}">
+
+            <result name="play">/music/play.jsp</result>
+
         </action>
 
 

@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,15 +9,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    
+
       <%
   	String p = request.getParameter("path");
   String n = request.getParameter("songname");
   String sg = request.getParameter("singername");
-  
-  	
+
+
   %>
-    <title><%=n %></title>
+    <title><s:property value="songname"/></title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -67,14 +68,14 @@ body{margin:0;}
   <img class="MusicPlayBg" src="music/images/zsy.png" /> 
   <img class="MusicPlayProcess rotate" src="music/images/yyjd.png" />
     <div class="MusicPlayBox">
-      <h3 class="title"><%=n %></h3>
-      <p class="name"><%=sg %></p>
+      <h3 class="title"><s:property value="songname"/></h3>
+      <p class="name"><s:property value="singername"/></p>
       <div class="MusicPic"> <img class="MusicPicName PicNameRotate" src="music/files/${singerimage }" /> <img class="MusicPicButton" src="music/images/pause.png" /> </div>
       <div class="Prev icon"></div>
       <div class="Next icon"></div>
     </div>
   </div>
-  <audio src="<%=p %>" autoplay="autoplay" controls="controls"></audio>
+  <audio src="<s:property value="songpath"/>" autoplay="autoplay" controls="controls"></audio>
   			
   			  	
   <div id="player"></div>
