@@ -60,6 +60,7 @@ public class SongAction extends ActionSupport {
 
         song.setSingerid(sid);
 
+        
         songService.addSong(song);
 
 

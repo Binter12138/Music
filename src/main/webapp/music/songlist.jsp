@@ -54,7 +54,7 @@
 		  </div>
 		   <!--图标-->
 		 <div class="mod_list_menu">
-		<a href="">
+		<a href="<s:url value="/UserCollectionplay.action"/>?songname=<s:property value="#song.songname"/>&singername=<s:property value="#song.singername"/>&songpath=<s:property value="#song.path"/>">
 			<img class="play"src="music/images/play48.png"/>
 		</a>
 		<a href="">
