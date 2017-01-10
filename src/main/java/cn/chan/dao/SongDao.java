@@ -47,10 +47,22 @@ public interface SongDao {
 
 
     /**
-     * 按照歌曲id查询S
+     * 按照歌曲id查询
      * @param songid
      * @return
      */
     public Song findById(Integer songid);
+
+
+    /**
+     * 修改歌曲
+     * @param song
+     */
+    public void modifySong(Song song);
+
+
+
+
+
 
 }

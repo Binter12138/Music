@@ -46,14 +46,14 @@
 
 					<div>
 						<center>
-							<a href="">
+							<a href="/songfindSong.action?sname=<s:property value="#singer.singername"/>&singerimage=<s:property value="#singer.singerimage"/>">
 								<img src="<s:url value="/music/files/"/><s:property value="#singer.singerimage"/>"/>
 							</a>
 						</center>
 
 						<center>
 							<h3>
-								<a id="sname" href=""></a>
+								<a id="sname" href="/songfindSong.action?sname=<s:property value="#singer.singername"/>&singerimage=<s:property value="#singer.singerimage"/>"><s:property value="#singer.singername"/></a>
 							</h3>
 						</center>
 

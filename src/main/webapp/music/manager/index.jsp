@@ -276,7 +276,7 @@ var a=1;
 				</td>
 				<td>
 					<a href="/songdelSong.action?sid=<s:property value="#song.songid"/>" onclick="if(confirm('是否删除？')==false)return false">删除</a>|
-					<a href="">修改</a>
+					<a href="/songfindById.action?sid=<s:property value="#song.songid"/>">修改</a>
 				</td>
 			</tr>
 		</s:iterator>

@@ -1,22 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">
 
-      <%
-  	String p = request.getParameter("path");
-  String n = request.getParameter("songname");
-  String sg = request.getParameter("singername");
-
-
-  %>
     <title><s:property value="songname"/></title>
     
 	<meta http-equiv="pragma" content="no-cache">
@@ -70,7 +58,7 @@ body{margin:0;}
     <div class="MusicPlayBox">
       <h3 class="title"><s:property value="songname"/></h3>
       <p class="name"><s:property value="singername"/></p>
-      <div class="MusicPic"> <img class="MusicPicName PicNameRotate" src="music/files/${singerimage }" /> <img class="MusicPicButton" src="music/images/pause.png" /> </div>
+      <div class="MusicPic"> <img class="MusicPicName PicNameRotate" src="music/files/<s:property value="singerimage"/>"/> <img class="MusicPicButton" src="music/images/pause.png" /> </div>
       <div class="Prev icon"></div>
       <div class="Next icon"></div>
     </div>
@@ -104,15 +92,15 @@ $(function(){
         
     });
 	$(".Prev").click(function(){
-		$("audio").attr("src","<%=p%>");
+		$("audio").attr("src","<s:property value="songpath"/>");
 	});
 	$(".Next").click(function(){
-		$("audio").attr("src","<%=p%>");
+		$("audio").attr("src","<s:property value="songpath"/>");
 		
 	});
 	$(".Next").click(function(){
 		
-		$("h3").text("<%=n %>");
+		$("h3").text("<s:property value="songname"/>");
 	});
 });
 </script>

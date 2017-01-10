@@ -62,6 +62,10 @@
             <result name="findSong">/music/songlist.jsp</result>
 
 
+            <result name="modify">/music/manager/modify_song.jsp</result>
+
+
+            <result name="findById">/music/manager/modify_song.jsp</result>
             <result name="delete" type="redirectAction">songallSong.action</result>
 
         </action>
@@ -79,6 +83,8 @@
 
             <result name="allSingerName">/music/manager/addsong.jsp</result>
 
+            <!--修改歌曲-->
+            <!--<result name="modifysong">/music/manager/modify_song.jsp</result>-->
 
             <result name="delSinger" type="redirectAction">singerallSinger.action?result=after</result>
 
@@ -87,6 +93,9 @@
 
             <result name="update" type="redirectAction">singerallSinger.action?result=after</result>
         </action>
+
+
+
 
 
         <action name="UserCollection*" class="cn.chan.action.UserCollectionAction" method="{1}">

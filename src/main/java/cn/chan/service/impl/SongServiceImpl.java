@@ -90,4 +90,16 @@ public class SongServiceImpl implements SongService{
 
         return songDao.findById(songid);
     }
+
+
+    /**
+     * 修改歌曲
+     * @param song
+     */
+    @Override
+    public void modifySong(Song song) {
+
+        songDao.modifySong(song);
+
+    }
 }
