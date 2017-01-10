@@ -8,7 +8,11 @@
   <head>
     <base href="<%=basePath%>">
     
-    <title>${singern }</title>
+    <title></title>
+	  <%
+		  String singerimage = request.getParameter("singerimage");
+
+	  %>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -53,8 +57,9 @@
 		   <p class="singer_name" style="text-align:left"><s:property value="#song.songname"/> </p>
 		  </div>
 		   <!--图标-->
+
 		 <div class="mod_list_menu">
-		<a href="<s:url value="/UserCollectionplay.action"/>?songname=<s:property value="#song.songname"/>&singername=<s:property value="#song.singername"/>&songpath=<s:property value="#song.path"/>">
+		<a href="<s:url value="/UserCollectionplay.action"/>?songname=<s:property value="#song.songname"/>&singername=<s:property value="#song.singername"/>&songpath=<s:property value="#song.path"/>&singerimage=<%=singerimage%>">
 			<img class="play"src="music/images/play48.png"/>
 		</a>
 		<a href="">
@@ -85,5 +90,6 @@
 </div>
 <script type="text/javascript" src="music/js/jquery.min.js"></script>
 <script type="text/javascript" src="music/js/header.js"></script>
+
   </body>
 </html>

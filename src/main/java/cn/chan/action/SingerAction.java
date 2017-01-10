@@ -141,6 +141,13 @@ public class SingerAction extends ActionSupport{
         return "allSingerName";
     }
 
+    public String modifySong()
+    {
+
+        singerList = singerService.findAllSinger();
+        return "modifysong";
+    }
+
     /**
      * 删除歌手
      * @return

@@ -77,46 +77,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<form  action="/singeradd.action" id="formid"  name= "myform" method = 'post' onsubmit = "return checkUser();" enctype="multipart/form-data">
 			<table>
 				<tr>
-					<%--<td>歌手</td>--%>
+					<td>歌手</td>
 
 					<%--<td><input type="text" id="singers" name="singername"/></td>--%>
 					<%--<td><p style="color:red">${addsingername }</p></td>--%>
-					<td><s:textfield name="singer.singername" id="singers" label="歌手"/> </td>
+					<td><s:textfield name="singer.singername" id="singers" /> </td>
 				</tr>
 				<tr>
-					<%--<td>性别</td>--%>
+
 					<%--<td><input type="radio" id="rd" name="sex" value="男"/>男
 						<input type="radio" id="rd" name="sex" value="女"/>女
 					</td>--%>
+						<td>性别</td>
 					<td>
-						<s:radio list="{'男','女'}" id="rd" name="singer.sex" value="男" label="性别"/>
+						<s:radio list="{'男','女'}" id="rd" name="singer.sex" value="男"/>
 
 					</td>
 
 				</tr>
 				<tr>
-					<%--<td>简介</td>--%>
+					<td>简介</td>
 					<%--<td><input type="text" id="singers" name="singerinfo"/></td>--%>
-					<td><s:textarea name="singer.singerinfo" id="singers" label="简介"/></td>
+					<td><s:textarea name="singer.singerinfo" id="singers"/></td>
 				</tr>
 				<tr>
-					<%--<td>地域</td>--%>
+					<td>地域</td>
 					<%--<td><input type="radio" id="rd" value="华语" name="singerregion"/>华语
 						<input type="radio" id="rd" value="欧美" name="singerregion"/>欧美
 						<input type="radio" id="rd" value="日韩" name="singerregion"/>日韩
 					</td>--%>
-					<td><s:radio list="{'华语','欧美','日韩'}" name="singer.singerregion" value="华语" label="地域"/></td>
+					<td><s:radio list="{'华语','欧美','日韩'}" name="singer.singerregion" value="华语"/></td>
 				</tr>
 				<tr>
-					<%--<td>关注度</td>--%>
+					<td>关注度</td>
 					<%--<td><input type="text"  id="singers" name="singerattention"/></td>--%>
-					<td><s:textfield name="singer.singerattention" id="singers" label="关注度"/> </td>
+					<td><s:textfield name="singer.singerattention" id="singers"/> </td>
 
 				</tr>
 				<tr>
-					<%--<td>图片</td>--%>
+					<td>图片</td>
 					<%--<td><input type="file" id="singers" value="选择图片" name="singerimage"/></td>--%>
-					<td><s:file name="photo" id="singers" value="选择图片" label="图片"/></td>
+					<td><s:file name="photo" id="singers" value="选择图片"/></td>
 				</tr>
 				<tr>
 					<%--<td></td>--%>

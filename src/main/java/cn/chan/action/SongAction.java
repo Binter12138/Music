@@ -11,10 +11,19 @@ import java.util.List;
 public class SongAction extends ActionSupport {
 
     private Song song;
+    private Song song1;//修改时进行回显
     private List<Song> songList;
     private String sname;
     private SongService songService;
     private Integer sid;
+
+    public Song getSong1() {
+        return song1;
+    }
+
+    public void setSong1(Song song1) {
+        this.song1 = song1;
+    }
 
     public Integer getSid() {
         return sid;
@@ -105,7 +114,10 @@ public class SongAction extends ActionSupport {
     }
 
 
-
+    /**
+     * 删除歌曲
+     * @return
+     */
     public String delSong()
     {
 
@@ -114,4 +126,24 @@ public class SongAction extends ActionSupport {
     }
 
 
+    /**
+     * 修改歌曲
+     * @return
+     */
+    public String modify()
+    {
+
+
+        return "modify";
+    }
+
+
+    public String findById() {
+
+        song1 = songService.findById(sid);
+
+
+        return "findById";
+
+    }
 }

@@ -54,4 +54,10 @@ public interface SongService {
      */
     public Song findById(Integer songid);
 
+    /**
+     * 修改歌曲
+     * @param song
+     */
+    public void modifySong(Song song);
+
 }

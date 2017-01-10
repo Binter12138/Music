@@ -86,8 +86,12 @@
 		<table  width="100%" border="0">
 			<tr>
 				<td id="songs">歌名</td>
-				<td><input type="text" id="textid" name="song.songname" value=""></td>
+				<%--<td><input type="text" id="textid" name="song.songname" value="%{#request.song1.songname}"></td>--%>
 
+				<td>
+					<s:textfield id="textid" name="song.songname" value="%{#request.song1.songname}"/>
+
+				</td>
 			</tr>
 
 			<tr>
@@ -95,11 +99,7 @@
 				<%--<td><input type="text" id="textid" name="song.singername"></td>--%>
 
 				<td>
-					<%--<s:select list="#request.singerList" listKey="singerid" listValue="singername" value="singerid" name="sid"/>--%>
-
-
-
-
+					<%--<s:select list="#request.singerList" listKey="singerid" listValue="%{#request.song1.singername}" value="singerid" name="sid"/>--%>
 
 				</td>
 				<td><p style="color:red"></p></td>
@@ -107,22 +107,34 @@
 
 			<tr>
 				<td id="songs">路径</td>
-				<td><input type="text" id="textid" name="song.path"></td>
+				<td>
+					<%--<input type="text" id="textid" name="song.path" value="<s:property value="#sing1.path"/>">--%>
+					<s:textfield id="textid" name="song.path" value="%{#request.song1.path}"/>
+				</td>
 			</tr>
 
 			<tr>
 				<td id="songs">所属专辑</td>
-				<td><input type="text" id="textid" name="song.album"></td>
+				<td>
+					<%--<input type="text" id="textid" name="song.album">--%>
+					<s:textfield id="textid" name="song.album" value="%{#request.song1.album}"/>
+				</td>
 			</tr>
 
 			<tr>
 				<td id="songs">类型</td>
-				<td><input type="text" id="textid" name="song.songtype"></td>
+				<td>
+					<%--<input type="text" id="textid" name="song.songtype">--%>
+					<s:textfield id="textid" name="song.songtype" value="%{#request.song1.songtype}"/>
+				</td>
 			</tr>
 
 			<tr>
 				<td id="songs">热度</td>
-				<td><input type="text" id="textid" name="song.heat"></td>
+				<td>
+					<%--<input type="text" id="textid" name="song.heat">--%>
+					<s:textfield id="textid" name="song.heat" value="%{#request.song1.heat}"/>
+				</td>
 			</tr>
 
 			<tr>

@@ -10,8 +10,15 @@ public class UserCollectionAction extends ActionSupport {
     private String songname;
     private String singername;
     private String songpath;
+    private String singerimage;
 
+    public String getSingerimage() {
+        return singerimage;
+    }
 
+    public void setSingerimage(String singerimage) {
+        this.singerimage = singerimage;
+    }
 
     public String getSongname() {
         return songname;

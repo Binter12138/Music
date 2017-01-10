@@ -147,4 +147,17 @@ public class SongDaoImpl implements SongDao{
     }
 
 
+    /**
+     * 修改歌曲
+     * @param song
+     */
+    @Override
+    public void modifySong(Song song) {
+
+
+        hibernateTemplate.update(song);
+
+    }
+
+
 }

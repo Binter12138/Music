@@ -95,7 +95,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<%--<td><input type="text" id="textid" name="song.singername"></td>--%>
 
 				<td>
-					<s:select list="#request.singerList" listKey="singerid" listValue="singername" value="singerid" name="sid" id="sename" onchange="changeName(this)"/>
+					<s:select list="#request.singerList" listKey="singerid" listValue="singername" value="singerid"
+							  name="sid" id="sename" onchange="changeName(this)" headerKey="0" headerValue="-----请选择-----"/>
 
 
                     <input type="hidden" id="hiddenname" name="song.singername" value="">
