@@ -98,10 +98,20 @@
 
 
 
+        <!--用户收藏-->
         <action name="UserCollection*" class="cn.chan.action.UserCollectionAction" method="{1}">
 
             <result name="play">/music/play.jsp</result>
             <result name="toLogin" type="redirect">/music/login.jsp</result>
+
+
+        </action>
+
+
+        <!--专辑-->
+        <action name="album*" class="cn.chan.action.AlbumAction" method="{1}">
+
+            <result name="add" type="redirect">/music/manager/index.jsp</result>
 
 
         </action>

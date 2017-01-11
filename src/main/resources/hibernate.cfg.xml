@@ -28,6 +28,7 @@
         <mapping class="cn.chan.entity.UserCollection"></mapping>
         <mapping class="cn.chan.entity.Singer"></mapping>
         <mapping class="cn.chan.entity.Song"></mapping>
+        <mapping class="cn.chan.entity.Album"></mapping>
 
 
     </session-factory>

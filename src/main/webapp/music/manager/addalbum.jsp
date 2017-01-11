@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -43,30 +44,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div class="login">
 		<ul>
-			<li><span>您好：${admin }</span></li>
-			<li><a href="<c:url value='/UserServlet?method=exitManager'/>" class="header_a">注销</a></li>
+			<li><span>您好：</span></li>
+			<li><a href="/>" class="header_a">注销</a></li>
 		</ul>
 	</div>	
 </div>
 	  <div>
 		  
-		  <form action="<c:url value='/AlbumServlet?method=addAlbum'/>" method="post" enctype="multipart/form-data">
+		  <form action="/albumaddAlbum.action" method="post" enctype="multipart/form-data">
 		  <table>
 		    <tr>
 				<td style="text-align:right;padding: 10px;">专辑名称:</td>
-				<td><input type="text" name="album" style="width: 300px;height:30px"/></td>
+				<%--<td><input type="text" name="album" style="width: 300px;height:30px"/></td>--%>
+				<td><s:textfield name="album.albumName" style="width: 300px;height:30px"/></td>
 			</tr>
 			<tr>
 				<td style="text-align:right;padding: 10px;">歌手名:</td>
-				<td><input type="text" name="singername" style="width: 300px;height:30px"/></td>
+				<%--<td><input type="text" name="singername" style="width: 300px;height:30px"/></td>--%>
+				<td><s:textfield name="album.singername" style="width: 300px;height:30px"/></td>
 			</tr>
 			<tr>
 				<td style="text-align:right;padding: 10px;">专辑图片:</td>
-				<td><input type="file" value="选择图片" name="albumimage"/></td>
+				<%--<td><input type="file" value="选择图片" name="albumimage"/></td>--%>
+				<td><s:file name="photo" value="选择图片"/></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" value="添加" style="background:green;border:0;padding: 5px 10px;color: wheat;padding: 10px;"/></td>
+				<%--<td><input type="submit" value="添加" style="background:green;border:0;padding: 5px 10px;color: wheat;padding: 10px;"/></td>--%>
+				<td><s:submit value="添加" style="background:green;border:0;padding: 5px 10px;color: wheat;padding: 10px;"/></td>
 			</tr>
 		  </table>
 		  </form>
