@@ -24,4 +24,16 @@ public class UserCollectionDaoImpl implements UserCollectionDao {
     public List<UserCollection> findByUser(Integer userid) {
         return null;
     }
+
+
+    /**
+     * 添加收藏
+     * @param userCollection
+     */
+    @Override
+    public void addUserCollection(UserCollection userCollection) {
+
+        hibernateTemplate.save(userCollection);
+
+    }
 }

@@ -101,6 +101,8 @@
         <action name="UserCollection*" class="cn.chan.action.UserCollectionAction" method="{1}">
 
             <result name="play">/music/play.jsp</result>
+            <result name="toLogin" type="redirect">/music/login.jsp</result>
+
 
         </action>
 
