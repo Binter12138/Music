@@ -6,6 +6,8 @@ import cn.chan.entity.Album;
 import cn.chan.service.AlbumService;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Transactional
 public class AlbumServiceImpl implements AlbumService{
 
@@ -25,5 +27,28 @@ public class AlbumServiceImpl implements AlbumService{
 
         albumDao.addAlbum(album);
 
+    }
+
+
+    /**
+     * 查找所以专辑
+     * @return
+     */
+    @Override
+    public List<Album> findAll() {
+
+
+        return albumDao.findAll();
+    }
+
+
+    /**
+     * 删除专辑
+     * @param aid
+     */
+    @Override
+    public void deleteAlbum(Integer aid) {
+
+        albumDao.deleteAlbum(aid);
     }
 }

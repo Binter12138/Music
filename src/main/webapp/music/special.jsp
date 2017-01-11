@@ -1,5 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <%@include file="header.jsp" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -25,16 +27,17 @@
 	<center><h1>———————全部专辑——————</h1></center>
 	<div class="table" >
 	
-	<c:forEach items="${album }" var="al">
-	
+	<%--<c:forEach items="${album }" var="al">--%>
+	<s:iterator value="albumList" var="album">
 		<dl>
-			<dt><a href="<c:url value='/SongServlet?method=viewalbumsong&albumname=${al.albumname }'/>"><img src="<c:url value='/music/files/${al.albunimage }'/>"/><p class="txt"></p></a></dt>
-			<dd><a href="<c:url value='/SongServlet?method=viewalbumsong&albumname=${al.albumname }'/>">${al.albumname }</a></dd>
-			<dd class="singer"><a href="javascript:;">${al.singername }</a></dd>
+			<dt><a href=""><img src="/music/files/<s:property value="#album.albumImage"/>"/><p class="txt"></p></a></dt>
+			<dd><a href=""><s:property value="#album.albumName"/></a></dd>
+			<dd class="singer"><a href="javascript:;"><s:property value="#album.singername"/></a></dd>
 			
 		</dl>
+	</s:iterator>
 	
-	</c:forEach>
+	<%--</c:forEach>--%>
 	
 		
 	</div>

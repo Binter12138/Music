@@ -50,19 +50,19 @@
 
 
     <!--配置User-->
-    <import resource="classpath:user.xml"></import>
+    <import resource="classpath:spring/user.xml"></import>
 
     <!--配置userCollection-->
-    <import resource="classpath:userCollection.xml"></import>
+    <import resource="classpath:spring/userCollection.xml"></import>
 
     <!--配置Singer-->
-    <import resource="classpath:singer.xml"></import>
+    <import resource="classpath:spring/singer.xml"></import>
 
     <!--配置Song-->
-    <import resource="classpath:song.xml"></import>
+    <import resource="classpath:spring/song.xml"></import>
 
     <!--配置Album-->
-    <import resource="classpath:album.xml"></import>
+    <import resource="classpath:spring/album.xml"></import>
 
 
 

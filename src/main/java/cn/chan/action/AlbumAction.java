@@ -6,6 +6,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 
 import java.io.File;
+import java.util.List;
 
 
 public class AlbumAction extends ActionSupport {
@@ -14,6 +15,33 @@ public class AlbumAction extends ActionSupport {
     private File photo;
     private String photoFileName;
     private Album album;
+    private String result;//判断前后台数据
+    private List<Album> albumList;
+    private Integer aid;
+
+    public Integer getAid() {
+        return aid;
+    }
+
+    public void setAid(Integer aid) {
+        this.aid = aid;
+    }
+
+    public List<Album> getAlbumList() {
+        return albumList;
+    }
+
+    public void setAlbumList(List<Album> albumList) {
+        this.albumList = albumList;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
 
     public Album getAlbum() {
         return album;
@@ -65,6 +93,30 @@ public class AlbumAction extends ActionSupport {
 
 
         return "add";
+    }
+
+
+    public String all()
+    {
+        albumList = albumService.findAll();
+
+        if(result.equals("before"))
+        {
+            return "beforeAll";
+        }else if(result.equals("after")) {
+            return "afterAll";
+        }else {
+            return NONE;
+        }
+
+
+    }
+
+    public String delete()
+    {
+
+        albumService.deleteAlbum(aid);
+        return "delete";
     }
 
 }
