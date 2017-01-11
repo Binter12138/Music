@@ -135,8 +135,8 @@ var a=1;
              <li>
             	<a class="a_list a_list3">专辑管理</a>
                 <div class="menu_list">
-                	<a href="">添加专辑</a>
-                    <a href="">查看专辑</a>
+                	<a href="/music/manager/addalbum.jsp">添加专辑</a>
+                    <a href="/albumall.action?result=after">查看专辑</a>
                 </div>
             </li>
             <li>
@@ -281,31 +281,52 @@ var a=1;
 			</tr>
 		</s:iterator>
       </table>
+        <table class="table_list">
 
-
-            <table class="table_list">
-                <s:if test="singerList">
+            <s:if test="albumList">
                 <tr>
+                    <th>专辑</th>
                     <th>歌手</th>
-                    <th>性别</th>
-                    <th>简介</th>
                     <th>操作</th>
                 </tr>
-                </s:if>
-                <s:iterator value="singerList" var="singer">
-                    <tr>
-                        <td><s:property value="#singer.singername"/></td>
-                        <td><s:property value="#singer.sex"/></td>
-                        <td><s:property value="#singer.singerinfo"/></td>
-                        <td><a href="/singerdelSinger.action?singerid=<s:property value="#singer.singerid"/>" onclick="if(confirm('是否删除？')==false)return false">删除</a>|
-                            <a href="/singerfindId.action?singerid=<s:property value="#singer.singerid"/>">修改</a>
-                        </td>
+            </s:if>
 
-                    </tr>
+            <s:iterator value="albumList" var="album">
+                <tr>
+                    <td><s:property value="#album.albumName"/></td>
+                    <td><s:property value="#album.singername"/></td>
+                    <td><a href="/albumdelete.action?aid=<s:property value="#album.aid"/>" onclick="if(confirm('是否删除？')==false)return false">删除</a>|
+                        <a href="">修改</a></td>
+
+                </tr>
+            </s:iterator>
+
+        </table>
 
 
-                </s:iterator>
-            </table>
+        <table class="table_list">
+            <s:if test="singerList">
+            <tr>
+                <th>歌手</th>
+                <th>性别</th>
+                <th>简介</th>
+                <th>操作</th>
+            </tr>
+            </s:if>
+            <s:iterator value="singerList" var="singer">
+                <tr>
+                    <td><s:property value="#singer.singername"/></td>
+                    <td><s:property value="#singer.sex"/></td>
+                    <td><s:property value="#singer.singerinfo"/></td>
+                    <td><a href="/singerdelSinger.action?singerid=<s:property value="#singer.singerid"/>" onclick="if(confirm('是否删除？')==false)return false">删除</a>|
+                        <a href="/singerfindId.action?singerid=<s:property value="#singer.singerid"/>">修改</a>
+                    </td>
+
+                </tr>
+
+
+            </s:iterator>
+        </table>
 
             <table class="table_user">
                 <s:if test="userList">

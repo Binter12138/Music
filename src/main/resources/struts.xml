@@ -113,6 +113,9 @@
 
             <result name="add" type="redirect">/music/manager/index.jsp</result>
 
+            <result name="beforeAll">/music/special.jsp</result>
+            <result name="afterAll">/music/manager/index.jsp</result>
+            <result name="delete" type="redirectAction">albumall.action?result=after</result>
 
         </action>
 
