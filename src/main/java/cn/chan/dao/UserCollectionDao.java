@@ -10,6 +10,13 @@ public interface UserCollectionDao {
     public List<UserCollection> findByUser(Integer userid);
 
 
+    /**
+     * 添加收藏
+     * @param userCollection
+     */
+    public void addUserCollection(UserCollection userCollection);
+
+
 
 
 

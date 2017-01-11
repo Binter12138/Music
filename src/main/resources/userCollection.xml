@@ -14,7 +14,12 @@
 	http://www.springframework.org/schema/tx
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <bean id="userCollection" class="cn.chan.entity.UserCollection"></bean>
     <bean id="userCollectionAction" class="cn.chan.action.UserCollectionAction">
+
+
+        <property name="userCollection" ref="userCollection"></property>
+
         <property name="userCollectionService" ref="userCollectionService"></property>
 
     </bean>
@@ -26,4 +31,5 @@
         <property name="hibernateTemplate" ref="hibernateTemplate"></property>
 
     </bean>
+
 </beans>

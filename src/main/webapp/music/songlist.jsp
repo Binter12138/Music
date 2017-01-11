@@ -62,7 +62,8 @@
 		<a href="<s:url value="/UserCollectionplay.action"/>?songname=<s:property value="#song.songname"/>&singername=<s:property value="#song.singername"/>&songpath=<s:property value="#song.path"/>&singerimage=<%=singerimage%>">
 			<img class="play"src="music/images/play48.png"/>
 		</a>
-		<a href="">
+		<a href="<s:url value="UserCollectionaddUserCollection.action"/>?songname=<s:property value="#song.songname"/>&singername=<s:property value="#song.singername"/>&songpath=<s:property value="#song.path"/>&username=<s:property value="#session.user.username"/>&userid=<s:property value="#session.user.userid"/>" onclick="checkUser()">
+			<%--<hidden name="userCollection.songname" value="<s:property value="#song.songname"/>"/>--%>
 			<img class="play" src="music/images/plus49.png"/>
 		</a>
 		<a href="javascript:;">
@@ -90,6 +91,18 @@
 </div>
 <script type="text/javascript" src="music/js/jquery.min.js"></script>
 <script type="text/javascript" src="music/js/header.js"></script>
+  <script type="text/javascript">
+
+	  function checkUser() {
+		  var username = <%=session.getAttribute("user")%>
+		  if(username == null || username == "")
+		  {
+
+			  alert("您还没有登录");
+		  }
+	  };
+
+  </script>
 
   </body>
 </html>
