@@ -18,8 +18,10 @@ public class UserCollectionServiceImpl implements UserCollectionService{
     }
 
     @Override
-    public List<UserCollection> findByUser(Integer userid) {
-        return null;
+    public List<UserCollection> findAll(Integer userid) {
+
+
+        return userCollectionDao.findAll(userid);
     }
 
     @Override

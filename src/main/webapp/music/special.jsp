@@ -30,9 +30,9 @@
 	<%--<c:forEach items="${album }" var="al">--%>
 	<s:iterator value="albumList" var="album">
 		<dl>
-			<dt><a href=""><img src="/music/files/<s:property value="#album.albumImage"/>"/><p class="txt"></p></a></dt>
-			<dd><a href=""><s:property value="#album.albumName"/></a></dd>
-			<dd class="singer"><a href="javascript:;"><s:property value="#album.singername"/></a></dd>
+			<dt><a href="/songfindSong.action?sname=<s:property value="#album.singername"/>"><img src="/music/files/<s:property value="#album.albumImage"/>"/><p class="txt"></p></a></dt>
+			<dd><a href="/songfindSong.action?sname=<s:property value="#album.singername"/>"><s:property value="#album.albumName"/></a></dd>
+			<dd class="singer"><a href="/songfindSong.action?sname=<s:property value="#album.singername"/>"><s:property value="#album.singername"/></a></dd>
 			
 		</dl>
 	</s:iterator>

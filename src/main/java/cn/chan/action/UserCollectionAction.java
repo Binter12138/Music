@@ -5,6 +5,7 @@ import cn.chan.service.UserCollectionService;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 
 public class UserCollectionAction extends ActionSupport {
@@ -16,6 +17,15 @@ public class UserCollectionAction extends ActionSupport {
     private String singerimage;
     private String username;
     private Integer userid;
+    private List<UserCollection> userCollectionList;
+
+    public List<UserCollection> getUserCollectionList() {
+        return userCollectionList;
+    }
+
+    public void setUserCollectionList(List<UserCollection> userCollectionList) {
+        this.userCollectionList = userCollectionList;
+    }
 
     public UserCollection getUserCollection() {
         return userCollection;
@@ -122,5 +132,23 @@ public class UserCollectionAction extends ActionSupport {
 
 
     }
+
+
+    public String userCollection()
+    {
+
+        if(userid == null)
+        {
+            return "tologin";
+
+        }
+        else {
+
+            userCollectionList = userCollectionService.findAll(userid);
+            return "userCollection";
+        }
+
+    }
+
 
 }
