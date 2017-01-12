@@ -17,6 +17,19 @@ public interface UserCollectionDao {
     public void addUserCollection(UserCollection userCollection);
 
 
+    /**
+     * 查找用户收藏
+     * @return
+     */
+    public List<UserCollection> findAll(Integer userid);
+
+    /**
+     * 用户取消收藏
+     * @param cid
+     */
+    public void deleteCollection(Integer cid);
+
+
 
 
 

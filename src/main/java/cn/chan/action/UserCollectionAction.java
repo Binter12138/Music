@@ -5,6 +5,7 @@ import cn.chan.service.UserCollectionService;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 
 public class UserCollectionAction extends ActionSupport {
@@ -16,6 +17,24 @@ public class UserCollectionAction extends ActionSupport {
     private String singerimage;
     private String username;
     private Integer userid;
+    private Integer cid;//用户收藏的id
+    private List<UserCollection> userCollectionList;
+
+    public Integer getCid() {
+        return cid;
+    }
+
+    public void setCid(Integer cid) {
+        this.cid = cid;
+    }
+
+    public List<UserCollection> getUserCollectionList() {
+        return userCollectionList;
+    }
+
+    public void setUserCollectionList(List<UserCollection> userCollectionList) {
+        this.userCollectionList = userCollectionList;
+    }
 
     public UserCollection getUserCollection() {
         return userCollection;
@@ -104,7 +123,7 @@ public class UserCollectionAction extends ActionSupport {
             {
 
 
-                return "toLogin";
+                return "addtoLogin";
             }
             else{
                 userCollection.setSingername(singername);
@@ -113,7 +132,7 @@ public class UserCollectionAction extends ActionSupport {
                 userCollection.setUserid(userid);
                 userCollection.setUsername(username);
                 userCollectionService.addUserCollection(userCollection);
-                return NONE;
+                return "collectionadd";
             }
 
         } catch (Exception e) {
@@ -122,5 +141,36 @@ public class UserCollectionAction extends ActionSupport {
 
 
     }
+
+
+    public String userCollection()
+    {
+
+        if(userid == null)
+        {
+            return "Collectiontologin";
+
+        }
+        else {
+
+            userCollectionList = userCollectionService.findAll(userid);
+            return "userCollection";
+        }
+
+    }
+
+
+    public String delete()
+    {
+
+        userCollectionService.deleteCollection(cid);
+
+
+        return "delete";
+
+
+    }
+
+
 
 }

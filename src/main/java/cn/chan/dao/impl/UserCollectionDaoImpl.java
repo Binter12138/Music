@@ -36,4 +36,33 @@ public class UserCollectionDaoImpl implements UserCollectionDao {
         hibernateTemplate.save(userCollection);
 
     }
+
+    /**
+     *
+     * 查找用户收藏根据用户的id查询该用户收藏的歌曲
+     *
+     *
+     * @param userid
+     * @return
+     */
+    @Override
+    public List<UserCollection> findAll(Integer userid) {
+
+
+
+        return (List<UserCollection>) hibernateTemplate.find("from UserCollection where userid=?",userid);
+    }
+
+
+    /**
+     * 用户取消收藏
+     * @param cid
+     */
+    @Override
+    public void deleteCollection(Integer cid) {
+
+        UserCollection userCollection = hibernateTemplate.get(UserCollection.class, cid);
+        hibernateTemplate.delete(userCollection);
+
+    }
 }

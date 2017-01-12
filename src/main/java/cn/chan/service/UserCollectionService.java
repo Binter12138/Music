@@ -8,9 +8,15 @@ import java.util.List;
 public interface UserCollectionService {
 
 
-    public List<UserCollection> findByUser(Integer userid);
+    public List<UserCollection> findAll(Integer userid);
 
 
     public void addUserCollection(UserCollection userCollection);
+
+
+    public void deleteCollection(Integer cid);
+
+
+
 
 }

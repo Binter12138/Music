@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <%@include file="header.jsp" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -27,7 +28,7 @@
 			<li>
 				<div>
 					<center><img src="music/images/bg.jpg"/></center>
-					<center class="myname">${username }</center>
+					<center class="myname"><s:property value="#session.user.username"/></center>
 					<center><a class="frame_singer" href="javascript:;">关注</a>|<a class="frame_song" href="javascript:;">收藏</a></center>
 				</div>
 			</li>
@@ -40,21 +41,32 @@
 				<th>序号</th>
 				<td>歌曲</td>
 				<td>歌手</td>
-				<th>时长</th>
+
 			</tr>
-			<c:forEach items="${userCollection }" var="ss">
+			<s:iterator value="userCollectionList" var="userCollection">
+			<%--<c:forEach items="${userCollection }" var="ss">--%>
 				<tr>
 				<th>1</th>
 				<td>
-					<a href="<c:url value='/SingerServlet?method=findsinger&path=${ss.songpath }&singername=${ss.singername }&songname=${ss.songname}'/>">${ss.songname }</a>
+					<a href="/songfindSong.action?sname=<s:property value="#userCollection.songname"/>"><s:property value="#userCollection.songname"/></a>
+					<%--<a href="<c:url value='/SingerServlet?method=findsinger&path=${ss.songpath }&singername=${ss.singername }&songname=${ss.songname}'/>">${ss.songname }</a>--%>
 				</td>
-				<td><a href="<c:url value='/SongServlet?method=viewSong&singerName=${ss.singername }'/>">${ss.singername }</a></td>
+				<td>
+					<a href="/songfindSong.action?sname=<s:property value="#userCollection.singername"/>"><s:property value="#userCollection.singername"/></a>
+					<%--<a href="<c:url value='/SongServlet?method=viewSong&singerName=${ss.singername }'/>">${ss.singername }</a>--%>
+				</td>
+				<td>
+
+					<a href="/UserCollectiondelete.action?cid=<s:property value="#userCollection.ucid"/>" onclick="if(confirm('是否取消收藏？')==false)return false">取消收藏</a>
+
+				</td>
 				 
 			
 				<th>xxxx</th>
 			</tr>
 			
-			</c:forEach>
+			<%--</c:forEach>--%>
+			</s:iterator>
 			
 		</table>
 	</div>
