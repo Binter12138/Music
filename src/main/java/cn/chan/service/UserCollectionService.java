@@ -14,6 +14,9 @@ public interface UserCollectionService {
     public void addUserCollection(UserCollection userCollection);
 
 
+    public void deleteCollection(Integer cid);
+
+
 
 
 }

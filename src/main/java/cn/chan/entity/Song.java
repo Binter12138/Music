@@ -17,7 +17,7 @@ public class Song {
     private Integer heat;
     private Integer singerid;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "singerid",insertable = false,updatable = false)
     private Singer singer;
 

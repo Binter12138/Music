@@ -30,6 +30,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				aaa.href = "/songfindSong.action?sname="+textname;
 				
 			};
+//			<script type="text/javascript">
+
+					<%--function checkUser() {--%>
+						<%--var username = <%=session.getAttribute("user")%>--%>
+						<%--if(username == null)--%>
+						<%--{--%>
+
+							<%--alert("您还没有登录");--%>
+						<%--}--%>
+					<%--};--%>
+
+	<%--</script>--%>
 		
 		
 
@@ -87,17 +99,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
   </body>
 
-  <script type="text/javascript">
 
-      function checkUser() {
-          var username = <%=session.getAttribute("user")%>
-          if(username == null || username == "")
-          {
-
-              alert("您还没有登录");
-          }
-      };
-
-  </script>
  
 </html>

@@ -102,7 +102,17 @@
         <action name="UserCollection*" class="cn.chan.action.UserCollectionAction" method="{1}">
 
             <result name="play">/music/play.jsp</result>
-            <result name="toLogin" type="redirect">/music/login.jsp</result>
+            <!--用户添加收藏，没登录时跳转到登录页面-->
+            <result name="addtoLogin" type="redirect">/music/login.jsp</result>
+
+            <!--用户没登录时查看收藏，跳转到登录页面-->
+            <result name="Collectiontologin" type="redirect">/music/login.jsp</result>
+
+            <result name="userCollection">/music/collection.jsp</result>
+
+            <result name="delete" type="redirect">/music/index.jsp</result>
+
+            <result name="collectionadd">/music/index.jsp</result>
 
 
         </action>

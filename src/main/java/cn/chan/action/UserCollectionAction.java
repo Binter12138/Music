@@ -17,7 +17,16 @@ public class UserCollectionAction extends ActionSupport {
     private String singerimage;
     private String username;
     private Integer userid;
+    private Integer cid;//用户收藏的id
     private List<UserCollection> userCollectionList;
+
+    public Integer getCid() {
+        return cid;
+    }
+
+    public void setCid(Integer cid) {
+        this.cid = cid;
+    }
 
     public List<UserCollection> getUserCollectionList() {
         return userCollectionList;
@@ -114,7 +123,7 @@ public class UserCollectionAction extends ActionSupport {
             {
 
 
-                return "toLogin";
+                return "addtoLogin";
             }
             else{
                 userCollection.setSingername(singername);
@@ -123,7 +132,7 @@ public class UserCollectionAction extends ActionSupport {
                 userCollection.setUserid(userid);
                 userCollection.setUsername(username);
                 userCollectionService.addUserCollection(userCollection);
-                return NONE;
+                return "collectionadd";
             }
 
         } catch (Exception e) {
@@ -139,7 +148,7 @@ public class UserCollectionAction extends ActionSupport {
 
         if(userid == null)
         {
-            return "tologin";
+            return "Collectiontologin";
 
         }
         else {
@@ -149,6 +158,19 @@ public class UserCollectionAction extends ActionSupport {
         }
 
     }
+
+
+    public String delete()
+    {
+
+        userCollectionService.deleteCollection(cid);
+
+
+        return "delete";
+
+
+    }
+
 
 
 }

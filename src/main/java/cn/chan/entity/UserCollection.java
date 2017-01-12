@@ -16,7 +16,7 @@ public class UserCollection {
     private String songpath;
     private Integer userid;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userid",insertable = false,updatable = false)
     private User user;
 

@@ -52,4 +52,17 @@ public class UserCollectionDaoImpl implements UserCollectionDao {
 
         return (List<UserCollection>) hibernateTemplate.find("from UserCollection where userid=?",userid);
     }
+
+
+    /**
+     * 用户取消收藏
+     * @param cid
+     */
+    @Override
+    public void deleteCollection(Integer cid) {
+
+        UserCollection userCollection = hibernateTemplate.get(UserCollection.class, cid);
+        hibernateTemplate.delete(userCollection);
+
+    }
 }

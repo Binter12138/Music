@@ -41,19 +41,24 @@
 				<th>序号</th>
 				<td>歌曲</td>
 				<td>歌手</td>
-				<th>时长</th>
+
 			</tr>
 			<s:iterator value="userCollectionList" var="userCollection">
 			<%--<c:forEach items="${userCollection }" var="ss">--%>
 				<tr>
 				<th>1</th>
 				<td>
-					<a href=""><s:property value="#userCollection.songname"/></a>
+					<a href="/songfindSong.action?sname=<s:property value="#userCollection.songname"/>"><s:property value="#userCollection.songname"/></a>
 					<%--<a href="<c:url value='/SingerServlet?method=findsinger&path=${ss.songpath }&singername=${ss.singername }&songname=${ss.songname}'/>">${ss.songname }</a>--%>
 				</td>
 				<td>
-					<a href=""><s:property value="#userCollection.singername"/></a>
+					<a href="/songfindSong.action?sname=<s:property value="#userCollection.singername"/>"><s:property value="#userCollection.singername"/></a>
 					<%--<a href="<c:url value='/SongServlet?method=viewSong&singerName=${ss.singername }'/>">${ss.singername }</a>--%>
+				</td>
+				<td>
+
+					<a href="/UserCollectiondelete.action?cid=<s:property value="#userCollection.ucid"/>" onclick="if(confirm('是否取消收藏？')==false)return false">取消收藏</a>
+
 				</td>
 				 
 			

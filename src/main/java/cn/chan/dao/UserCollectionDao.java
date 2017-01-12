@@ -23,6 +23,12 @@ public interface UserCollectionDao {
      */
     public List<UserCollection> findAll(Integer userid);
 
+    /**
+     * 用户取消收藏
+     * @param cid
+     */
+    public void deleteCollection(Integer cid);
+
 
 
 

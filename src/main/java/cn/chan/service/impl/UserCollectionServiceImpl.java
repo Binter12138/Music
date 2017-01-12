@@ -29,4 +29,9 @@ public class UserCollectionServiceImpl implements UserCollectionService{
 
         userCollectionDao.addUserCollection(userCollection);
     }
+
+    @Override
+    public void deleteCollection(Integer cid) {
+        userCollectionDao.deleteCollection(cid);
+    }
 }
